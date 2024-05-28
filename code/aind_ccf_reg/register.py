@@ -276,7 +276,7 @@ class Register(ArgSchemaParser):
             write_and_plot_image(
                 ants_img,
                 data_path=data_path, 
-                plot_path=plot_path, vmin=0, vmax=500)
+                plot_path=plot_path, vmin=VMIN, vmax=VMAX)
 
             channel_name_list.append(channel)
             ants_img_list.append(ants_img)
@@ -341,8 +341,7 @@ class Register(ArgSchemaParser):
         logger.info(f"\nStart registering to template ....")
 
         if self.args['reference_res'] == 25:
-            reg_iterations = [200, 20, 0] # TODO
-            # reg_iterations = [1, 0, 0, 0]
+            reg_iterations = [200, 20, 0]
         elif self.args['reference_res'] == 10:
             reg_iterations = [400, 200, 40, 0]
         else:
